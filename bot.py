@@ -358,7 +358,7 @@ async def send_ref_to_channel(chat_id, context, msg_type, content, caption=None)
     context.application.create_task(schedule_feedback(client_id, chat_id, context))
 
 async def schedule_feedback(client_id, chat_id, context):
-    await asyncio.sleep(5)  # В проде заменить на 10800 (3 часа)
+    await asyncio.sleep(10800)  # В проде заменить на 10800 (3 часа)
     ongoing_surveys[chat_id] = {'client_id': client_id, 'answers': {}, 'step': 0}
     await send_feedback_question(chat_id, context)
 
